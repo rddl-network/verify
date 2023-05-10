@@ -13,9 +13,9 @@ def validate_signature_json_data(pub_key: bytearray, signature: bytearray, json_
 
 def validate_signature_data_string(pub_key: bytearray, signature: bytearray, data_string: str) -> ValidationResult:
     byte_string = bytes(data_string, "utf-8")
-    hash = hashlib.sha3_256()
-    hash.update(byte_string)
-    result = validate_signature_data_hash(pub_key, signature, hash.digest())
+    hash_local = hashlib.sha3_256()
+    hash_local.update(byte_string)
+    result = validate_signature_data_hash(pub_key, signature, hash_local.digest())
     result.data_str = data_string
     return result
 
