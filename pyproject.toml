@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "verify"
+name = "rddl_verify"
 version = "0.1.0"
 description = ""
 authors = ["Jürgen Eckel <juergen@riddleandcode.com>"]
@@ -9,14 +9,24 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "^0.95.1"
-wallycore = "^0.8.9"
 python-decouple = "^3.8"
+pydantic = "^1.10.7"
+uvicorn = "^0.22.0"
+python-multipart = "^0.0.6"
+httpx = "^0.24.0"
+wallycore = "^0.8.9"
 
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
 pytest = "^7.3.1"
+httpx = "^0.24.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "."
+]

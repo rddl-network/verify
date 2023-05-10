@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from routers import (
+from rddl_verify.routers import (
     hash_data,
     validate_content,
 )
