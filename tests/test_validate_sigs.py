@@ -36,15 +36,15 @@ def test_verify_hash():
 
     assert json_obt_result.json_obj == json_dict
     assert json_obt_result.data_str == json_str
-    assert json_obt_result.data_digest == hash.digest()
+    assert json_obt_result.data_digest == hash.digest().hex()
     assert json_obt_result.is_valid == True
 
     assert string_result.json_obj == {}
     assert string_result.data_str == json_str
-    assert string_result.data_digest == hash.digest()
+    assert string_result.data_digest == hash.digest().hex()
     assert string_result.is_valid == True
 
     assert hash_result.json_obj == {}
     assert hash_result.data_str == ""
-    assert hash_result.data_digest == hash.digest()
+    assert hash_result.data_digest == hash.digest().hex()
     assert hash_result.is_valid == True
