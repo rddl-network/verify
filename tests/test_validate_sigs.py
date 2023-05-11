@@ -24,7 +24,7 @@ def test_verify_hash():
     json_dict = {"a": "dear Test", "b": "welcome"}
     json_str = json.dumps(json_dict)
     bytestring = bytes(json_str, "utf-8")
-    hash_local = hashlib.sha3_256()
+    hash_local = hashlib.sha256()
     hash_local.update(bytestring)
 
     priv, pub = get_key_pair()

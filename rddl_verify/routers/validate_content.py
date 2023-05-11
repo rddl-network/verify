@@ -5,7 +5,7 @@ from rddl_verify.models.validation_result import ValidationResult
 
 router = APIRouter(
     prefix="/validate",
-    tags=["Validate Transaction"],
+    tags=["Validate Data"],
     responses={404: {"detail": "Not found"}},
 )
 
@@ -23,21 +23,21 @@ def convert_key_sig(pub_key: str, signature: bytes):
 
 
 @router.post("/json", response_model=ValidationResult)
-async def validate_signature(pub_key: str, signature: str, data: dict):
+async def validate_json_object(pub_key: str, signature: str, data: dict):
     pub_key_bytes, signature_bytes = convert_key_sig(pub_key, signature)
 
     return verify_signature.validate_signature_json_data(pub_key_bytes, signature_bytes, data)
 
 
-@router.get("/string", response_model=ValidationResult)
-async def validate_signature(pub_key: str, signature: str, data: str):
+@router.post("/string", response_model=ValidationResult)
+async def validate_data_string(pub_key: str, signature: str, data: str):
     pub_key_bytes, signature_bytes = convert_key_sig(pub_key, signature)
 
     return verify_signature.validate_signature_data_string(pub_key_bytes, signature_bytes, data)
 
 
-@router.get("/hash", response_model=ValidationResult)
-async def validate_signature(pub_key: str, signature: str, data: str):
+@router.post("/hash", response_model=ValidationResult)
+async def validate_data_hash(pub_key: str, signature: str, data: str):
     pub_key_bytes, signature_bytes = convert_key_sig(pub_key, signature)
     try:
         data_hash_bytes = codecs.decode(data, "hex_codec")
