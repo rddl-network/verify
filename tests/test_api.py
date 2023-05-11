@@ -12,7 +12,7 @@ json_dict = {"a": "dear Test", "b": "welcome"}
 
 
 def test_hash():
-    response = client.get(f"validate/hash?pub_key={pub_key}&signature={sig}&data={hash}")
+    response = client.post(f"validate/hash?pub_key={pub_key}&signature={sig}&data={hash}")
     assert response.status_code == 200
     assert response.json()["json_obj"] == {}
     assert response.json()["data_digest"] == hash
@@ -21,7 +21,7 @@ def test_hash():
 
 
 def test_str():
-    response = client.get(f"validate/string?pub_key={pub_key}&signature={sig}&data={obj_str}")
+    response = client.post(f"validate/string?pub_key={pub_key}&signature={sig}&data={obj_str}")
     assert response.status_code == 200
     assert response.json()["json_obj"] == {}
     assert response.json()["data_digest"] == hash

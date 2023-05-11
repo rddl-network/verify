@@ -12,12 +12,12 @@ router = APIRouter(
 )
 
 
-@router.get("/hash/data")
+@router.get("/data")
 async def hash_data_endpoint(data: List[dict]):
     return {"hash": hash_data(data)}
 
 
-@router.get("/hash/file")
+@router.get("/file")
 async def hash_file(file: UploadFile = File(...)):
     contents = await file.read()
     data = json.loads(contents)
