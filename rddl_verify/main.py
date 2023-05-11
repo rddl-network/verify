@@ -17,5 +17,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+@app.get("/health")
+def health():
+    return {"health": "ok"}
+
+
 app.include_router(validate_content.router)
 app.include_router(hash_data.router)
