@@ -5,8 +5,8 @@ from rddl_verify.main import app
 client = TestClient(app)
 
 pub_key = "03c150061989643d77162902b725409087959f15914649d4f06b6cc3f8c87bb238"
-sig = "68fba9c12a74bbd3399b0efe9c924b884a2e037d827b147ec9ddd9c26217163a1776e73ffbf0b4655ac70ca565310d307f86a0c9c71e0c8926b47fdfafc8a7fc"
-hash = "2fc3dbae8a4db255781b38340fd1e372ac0cb6d3bd4d9eeba417227d1d5f7b38"
+sig = "80757d800947b659640c672b9c60629caa2b634d561168043644ce2b07b7366827d7905330c27e7dcdaf31fc511f31e00856f582da977b9564e2c3bb746adb23"
+hash = "7d381f4a480314a4d6947d497fbd9bfdfe8258876e9d4f57b6eefe99f7043783"
 obj_str = '{"a": "dear Test", "b": "welcome"}'
 json_dict = {"a": "dear Test", "b": "welcome"}
 
